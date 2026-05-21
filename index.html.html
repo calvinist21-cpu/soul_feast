@@ -1,886 +1,888 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Soul Feast @East Seoul · 2026.7.4</title>
-<meta name="description" content="당신을 잔치에 초대합니다. 2026년 7월 4일 토요일 저녁 6:30, 늘푸른교회에서." />
-
-<!-- Open Graph (카카오톡 공유용) -->
-<meta property="og:title" content="Soul Feast @East Seoul" />
-<meta property="og:description" content="당신을 잔치에 초대합니다 · 2026.7.4 (토) 저녁 6:30 · 늘푸른교회" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://i.ifh.cc/JJ676r.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://i.ifh.cc/JJ676r.jpg" />
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-
-<style>
-  :root {
-    --ink: #0a1b2e;
-    --deep-blue: #0d3a5c;
-    --mid-blue: #1d5a85;
-    --aqua: #5a9bbf;
-    --foam: #e8f1f7;
-    --bone: #f5f1ea;
-    --cream: #fdfaf3;
-    --accent: #d4a574;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Pretendard', -apple-system, sans-serif;
-    color: var(--ink);
-    background: var(--cream);
-    overflow-x: hidden;
-    line-height: 1.6;
-  }
-
-  /* ===== HERO ===== */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 6vh 6vw;
-    overflow: hidden;
-    background:
-      radial-gradient(ellipse at 20% 30%, rgba(90, 155, 191, 0.4) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 70%, rgba(13, 58, 92, 0.6) 0%, transparent 50%),
-      linear-gradient(135deg, #0a1b2e 0%, #0d3a5c 40%, #1d5a85 100%);
-    color: var(--cream);
-  }
-
-  /* 페인트 스트로크 텍스처 */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.6;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-  }
-
-  /* 큰 페인트 스플래시 */
-  .splash {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  .splash-1 {
-    top: -10%;
-    left: -15%;
-    width: 50%;
-    height: 60%;
-    background: radial-gradient(ellipse, rgba(232, 241, 247, 0.4), transparent 70%);
-    transform: rotate(-15deg);
-    filter: blur(40px);
-  }
-
-  .splash-2 {
-    bottom: -20%;
-    right: -10%;
-    width: 60%;
-    height: 70%;
-    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.15), transparent 70%);
-    transform: rotate(20deg);
-    filter: blur(60px);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    max-width: 900px;
-    animation: fadeUp 1.2s ease-out;
-  }
-
-  .invite-tag {
-    display: inline-block;
-    padding: 8px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 100px;
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    margin-bottom: 2.5rem;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.05);
-    text-transform: uppercase;
-    animation: fadeUp 1s 0.2s ease-out backwards;
-  }
-
-  .hero h1 {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(5rem, 16vw, 11rem);
-    font-weight: 600;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-    transform: rotate(-3deg);
-    text-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    animation: fadeUp 1.4s 0.3s ease-out backwards;
-  }
-
-  .hero h1 span {
-    display: block;
-    transform: translateX(15%) rotate(2deg);
-  }
-
-  .hero-location {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    letter-spacing: 0.4em;
-    margin-top: 1.5rem;
-    opacity: 0.85;
-    animation: fadeUp 1.4s 0.5s ease-out backwards;
-  }
-
-  .hero-date {
-    margin-top: 3.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    animation: fadeUp 1.4s 0.7s ease-out backwards;
-  }
-
-  .hero-date-line {
-    width: 1px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.4);
-  }
-
-  .hero-date-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
-    font-weight: 300;
-    letter-spacing: 0.05em;
-  }
-
-  .hero-time {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--accent);
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.7rem;
-    letter-spacing: 0.4em;
-    opacity: 0.6;
-    animation: bounce 2s infinite;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
-  }
-
-  /* ===== INVITATION (Verse) ===== */
-  .invitation {
-    padding: 14vh 6vw;
-    background: var(--cream);
-    position: relative;
-  }
-
-  .invitation-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .section-label {
-    font-family: 'Caveat', cursive;
-    font-size: 2rem;
-    color: var(--mid-blue);
-    transform: rotate(-3deg);
-    display: inline-block;
-    margin-bottom: 1.5rem;
-  }
-
-  .invitation-verse {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.25rem, 2.8vw, 1.85rem);
-    line-height: 1.7;
-    font-style: italic;
-    color: var(--ink);
-    font-weight: 300;
-  }
-
-  .invitation-verse-ref {
-    margin-top: 2rem;
-    font-family: 'Pretendard', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.3em;
-    color: var(--mid-blue);
-  }
-
-  .divider {
-    width: 60px;
-    height: 1px;
-    background: var(--accent);
-    margin: 3rem auto;
-  }
-
-  .invitation-message {
-    font-size: 1.05rem;
-    line-height: 1.9;
-    color: #333;
-  }
-
-  .invitation-message strong {
-    color: var(--deep-blue);
-    font-weight: 700;
-  }
-
-  /* ===== DETAILS ===== */
-  .details {
-    padding: 14vh 6vw;
-    background: var(--bone);
-  }
-
-  .details-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .detail-card {
-    background: var(--cream);
-    padding: 2.5rem 2rem;
-    border-radius: 4px;
-    border-top: 3px solid var(--mid-blue);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-  }
-
-  .detail-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(13, 58, 92, 0.15);
-  }
-
-  .detail-card-icon {
-    font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .detail-card-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    color: var(--mid-blue);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .detail-card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-    color: var(--ink);
-  }
-
-  .detail-card-sub {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.7;
-  }
-
-  /* ===== SPEAKER ===== */
-  .speaker {
-    padding: 14vh 6vw;
-    background: linear-gradient(180deg, var(--bone) 0%, var(--foam) 100%);
-  }
-
-  .speaker-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .speaker-photo-frame {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 2rem;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--mid-blue), var(--deep-blue));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--cream);
-    font-family: 'Caveat', cursive;
-    font-size: 4rem;
-    box-shadow: 0 20px 50px rgba(13, 58, 92, 0.25);
-    position: relative;
-  }
-
-  .speaker-photo-frame::after {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    border: 1px dashed var(--accent);
-    border-radius: 50%;
-    opacity: 0.5;
-  }
-
-  .speaker-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-  }
-
-  .speaker-role {
-    font-size: 0.95rem;
-    color: var(--mid-blue);
-    letter-spacing: 0.2em;
-    margin-bottom: 2rem;
-  }
-
-  .worship-team {
-    margin-top: 5rem;
-    padding-top: 4.5rem;
-    border-top: 1px solid rgba(13, 58, 92, 0.15);
-  }
-
-  .worship-label {
-    font-family: 'Caveat', cursive;
-    font-size: 2rem;
-    color: var(--mid-blue);
-    margin-bottom: 1rem;
-  }
-
-  .worship-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    color: var(--ink);
-  }
-
-  .worship-desc {
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    color: #555;
-    letter-spacing: 0.02em;
-  }
-
-  .worship-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-    padding: 1rem 1.75rem;
-    background: var(--cream);
-    border: 1px solid rgba(13, 58, 92, 0.15);
-    border-radius: 100px;
-    text-decoration: none;
-    color: var(--ink);
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 24px rgba(13, 58, 92, 0.08);
-    text-align: left;
-  }
-
-  .speaker-video-link {
-    margin-top: 1.25rem;
-  }
-
-  .worship-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 36px rgba(13, 58, 92, 0.18);
-    border-color: var(--mid-blue);
-    background: #fff;
-  }
-
-  .worship-link-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    background: #FF0033;
-    color: white;
-    border-radius: 50%;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-  }
-
-  .worship-link:hover .worship-link-icon {
-    transform: scale(1.08);
-  }
-
-  .worship-link-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.3;
-  }
-
-  .worship-link-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    color: var(--mid-blue);
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-
-  .worship-link-title {
-    font-family: 'Pretendard', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .worship-link-arrow {
-    margin-left: 0.5rem;
-    font-size: 1.1rem;
-    color: var(--mid-blue);
-    transition: transform 0.3s ease;
-  }
-
-  .worship-link:hover .worship-link-arrow {
-    transform: translate(3px, -3px);
-  }
-
-  /* ===== POSTER ===== */
-  .poster-section {
-    padding: 14vh 6vw;
-    background: linear-gradient(180deg, var(--foam) 0%, var(--bone) 100%);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .poster-section::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: -10%;
-    width: 40%;
-    height: 50%;
-    background: radial-gradient(ellipse, rgba(90, 155, 191, 0.15), transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-  }
-
-  .poster-section::after {
-    content: '';
-    position: absolute;
-    bottom: 5%;
-    right: -10%;
-    width: 35%;
-    height: 50%;
-    background: radial-gradient(ellipse, rgba(13, 58, 92, 0.1), transparent 70%);
-    filter: blur(60px);
-    pointer-events: none;
-  }
-
-  .poster-inner {
-    position: relative;
-    z-index: 2;
-    max-width: 540px;
-    margin: 0 auto;
-  }
-
-  .poster-script {
-    font-family: 'Caveat', cursive;
-    font-size: 2.2rem;
-    color: var(--mid-blue);
-    transform: rotate(-3deg);
-    display: inline-block;
-    margin-bottom: 0.5rem;
-  }
-
-  .poster-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.4em;
-    color: var(--mid-blue);
-    text-transform: uppercase;
-    margin-bottom: 2.5rem;
-  }
-
-  .poster-frame {
-    display: block;
-    position: relative;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 30px 70px rgba(13, 58, 92, 0.3);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    cursor: pointer;
-  }
-
-  .poster-frame:hover {
-    transform: translateY(-8px) rotate(-1deg);
-    box-shadow: 0 40px 90px rgba(13, 58, 92, 0.4);
-  }
-
-  .poster-frame img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .poster-caption {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-    letter-spacing: 0.05em;
-  }
-
-  .poster-caption strong {
-    color: var(--deep-blue);
-    font-weight: 600;
-  }
-
-  /* ===== CTA ===== */
-  .cta {
-    padding: 16vh 6vw;
-    background: var(--ink);
-    color: var(--cream);
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .cta::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -20%;
-    width: 80%;
-    height: 100%;
-    background: radial-gradient(ellipse, rgba(90, 155, 191, 0.3), transparent 70%);
-    filter: blur(80px);
-  }
-
-  .cta-inner {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
-  .cta-script {
-    font-family: 'Caveat', cursive;
-    font-size: clamp(3rem, 8vw, 5rem);
-    line-height: 1;
-    color: var(--accent);
-    margin-bottom: 2rem;
-    transform: rotate(-3deg);
-  }
-
-  .cta h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-    font-weight: 300;
-    margin-bottom: 3rem;
-    line-height: 1.5;
-  }
-
-  .cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    border-radius: 100px;
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--ink);
-    font-weight: 600;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 30px rgba(212, 165, 116, 0.4);
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--cream);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-  }
-
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--cream);
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    padding: 4rem 6vw 3rem;
-    background: var(--ink);
-    color: rgba(255, 255, 255, 0.5);
-    text-align: center;
-    font-size: 0.85rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  footer .host {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  footer .brand {
-    font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
-    color: var(--accent);
-    margin-top: 1rem;
-  }
-
-  /* ===== Scroll Animations ===== */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease, transform 1s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ===== Mobile ===== */
-  @media (max-width: 640px) {
-    .hero { padding: 8vh 5vw; }
-    .invitation, .details, .speaker, .poster-section { padding: 10vh 5vw; }
-    .detail-card { padding: 2rem 1.5rem; }
-    .cta-buttons { flex-direction: column; align-items: center; }
-    .btn { width: 100%; max-width: 280px; justify-content: center; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soul Feast @East Seoul · 2026.7.4</title>
+  <meta name="description" content="당신을 잔치에 초대합니다. 2026년 7월 4일 토요일 저녁 6:30, 늘푸른교회에서." />
+
+  <!-- Open Graph / Kakao/Meta Share -->
+  <meta property="og:title" content="Soul Feast @East Seoul" />
+  <meta property="og:description" content="당신을 잔치에 초대합니다 · 2026.7.4 (토) 저녁 6:30 · 늘푸른교회" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://i.ifh.cc/JJ676r.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://i.ifh.cc/JJ676r.jpg" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a1b2e',
+            deepBlue: '#0d3a5c',
+            midBlue: '#1d5a85',
+            aqua: '#5a9bbf',
+            foam: '#e8f1f7',
+            bone: '#f5f1ea',
+            cream: '#fdfaf3',
+            accent: '#d4a574',
+          },
+          fontFamily: {
+            caveat: ['Caveat', 'cursive'],
+            garamond: ['Cormorant Garamond', 'serif'],
+            sans: ['Pretendard', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <style>
+    /* Custom utility styles */
+    .hero-glow {
+      background: 
+        radial-gradient(ellipse at 20% 30%, rgba(90, 155, 191, 0.45) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(13, 58, 92, 0.65) 0%, transparent 60%),
+        linear-gradient(135deg, #0a1b2e 0%, #0d3a5c 40%, #1d5a85 100%);
+    }
+    
+    /* Noise texture overlay */
+    .noise-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.45;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth pulse for active markers */
+    .pulse-glow {
+      animation: soft-pulse 2s infinite alternate;
+    }
+    @keyframes soft-pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.05); opacity: 1; }
+    }
+
+    /* Interactive guest card pop */
+    .guest-card {
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .guest-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -10px rgba(13, 58, 92, 0.15);
+    }
+
+    /* Custom elegant scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fdfaf3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d4a574;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1d5a85;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-cream text-ink font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-ink">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="splash splash-1"></div>
-    <div class="splash splash-2"></div>
+  
+  <!-- CUSTOM ELEGAN TOAST NOTIFICATION -->
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-ink/95 border border-accent/40 backdrop-blur-md text-cream py-3.5 px-6 rounded-full shadow-2xl transition-all duration-500 ease-out opacity-0 pointer-events-none -translate-y-4">
+    <span class="text-accent text-lg" id="toast-icon">✨</span>
+    <p class="text-sm font-medium tracking-wide" id="toast-message">링크가 성공적으로 복사되었습니다.</p>
+  </div>
 
-    <div class="hero-content">
-      <div class="invite-tag">You're Invited</div>
-      <h1>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-screen flex flex-col justify-center items-center px-6 py-12 overflow-hidden hero-glow noise-bg text-cream">
+    <!-- Star Particles Canvas -->
+    <canvas id="particle-canvas" class="absolute inset-0 pointer-events-none z-10 opacity-70"></canvas>
+    
+    <!-- Background Splashes -->
+    <div class="absolute top-[-10%] left-[-15%] w-[50%] h-[60%] rotate-[-15deg] blur-[40px] pointer-events-none opacity-40" style="background: radial-gradient(ellipse, rgba(232, 241, 247, 0.4), transparent 70%);"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[70%] rotate-[20deg] blur-[60px] pointer-events-none opacity-15" style="background: radial-gradient(ellipse, rgba(255, 255, 255, 0.25), transparent 70%);"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center">
+      <!-- Floating Badge -->
+      <div class="inline-block px-5 py-2 border border-white/30 rounded-full text-[10px] tracking-[0.3em] uppercase backdrop-blur-md bg-white/5 text-foam animate-pulse mb-8">
+        You're Invited
+      </div>
+
+      <!-- Main Title (Caveat font with nice rotate) -->
+      <h1 class="font-caveat text-[5rem] sm:text-[8rem] md:text-[10rem] lg:text-[11rem] font-semibold leading-[0.85] tracking-tight mb-2 -rotate-[3deg] drop-shadow-[0_10px_40px_rgba(0,0,0,0.35)] select-none">
         Soul
-        <span>Feast</span>
+        <span class="block translate-x-[12%] rotate-[4deg] text-accent">Feast</span>
       </h1>
-      <div class="hero-location">@ EAST SEOUL</div>
 
-      <div class="hero-date">
-        <div class="hero-date-line"></div>
-        <div class="hero-date-text">2026 · 7 · 4 SAT</div>
-        <div class="hero-time">evening 6:30</div>
+      <div class="font-garamond text-base sm:text-lg md:text-xl tracking-[0.4em] uppercase mt-12 opacity-90 select-none">
+        @ EAST SEOUL
+      </div>
+
+      
+      <!-- LIVE COUNTDOWN TIMER -->
+      <div class="mt-8 flex flex-col items-center gap-2 bg-black/20 backdrop-blur-sm border border-white/10 px-6 py-4 rounded-2xl w-full max-w-sm sm:max-w-md">
+        <div class="text-[10px] tracking-[0.2em] text-accent font-semibold uppercase">잔치 시작까지</div>
+        <div class="flex justify-center items-center gap-4 text-cream font-mono">
+          <div class="text-center">
+            <span id="timer-days" class="text-2xl sm:text-3xl font-bold text-white">00</span>
+            <span class="block text-[9px] uppercase tracking-wider text-white/60">Days</span>
+          </div>
+          <span class="text-accent text-xl font-light mb-4">:</span>
+          <div class="text-center">
+            <span id="timer-hours" class="text-2xl sm:text-3xl font-bold text-white">00</span>
+            <span class="block text-[9px] uppercase tracking-wider text-white/60">Hours</span>
+          </div>
+          <span class="text-accent text-xl font-light mb-4">:</span>
+          <div class="text-center">
+            <span id="timer-minutes" class="text-2xl sm:text-3xl font-bold text-white">00</span>
+            <span class="block text-[9px] uppercase tracking-wider text-white/60">Min</span>
+          </div>
+          <span class="text-accent text-xl font-light mb-4">:</span>
+          <div class="text-center">
+            <span id="timer-seconds" class="text-2xl sm:text-3xl font-bold text-accent pulse-glow">00</span>
+            <span class="block text-[9px] uppercase tracking-wider text-white/60 text-accent/80">Sec</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Date Info -->
+      <div class="mt-8 flex flex-col items-center gap-2 select-none">
+        <div class="w-[1px] h-10 bg-white/30"></div>
+        <div class="font-garamond text-xl sm:text-3xl font-light tracking-[0.05em] mt-2">2026 · 7 · 4 SAT</div>
+        <div class="font-caveat text-3xl sm:text-4xl text-accent">evening 6:30</div>
       </div>
     </div>
 
-    <div class="scroll-hint">SCROLL</div>
+    <!-- Bottom Scroll Indicator -->
+    <a href="#invitation-start" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 group text-xs text-white/60 hover:text-white transition-colors duration-300">
+      <span class="tracking-[0.3em] font-light text-[9px]">SCROLL</span>
+      <svg class="w-4 h-4 animate-bounce mt-1 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
   </section>
 
-  <!-- INVITATION -->
-  <section class="invitation">
-    <div class="invitation-inner reveal">
-      <div class="section-label">an invitation</div>
-      <p class="invitation-verse">
-        "어떤 사람이 큰 잔치를 베풀고<br>
-        많은 사람을 청하였더니<br>
-        잔치할 시각에 그 청하였던 자들에게<br>
-        종을 보내어 이르되<br>
-        오소서, 모든 것이 준비되었나이다."
-      </p>
-      <div class="invitation-verse-ref">LUKE 14 : 16 - 17</div>
 
-      <div class="divider"></div>
+  <!-- INVITATION SECTION -->
+  <section id="invitation-start" class="relative py-24 px-6 md:px-12 bg-cream text-ink">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      
+      <!-- Artistic Scripture Symbol -->
+      <div class="font-caveat text-3xl text-midBlue -rotate-[3deg] inline-block mb-4">
+        an invitation
+      </div>
 
-      <p class="invitation-message">
+      <!-- Scripture Block -->
+      <div class="relative bg-bone/40 border border-accent/20 rounded-2xl p-8 sm:p-10 my-6 shadow-sm">
+        <span class="absolute top-4 left-6 text-accent/30 font-garamond text-6xl leading-none">“</span>
+        <p class="font-garamond text-lg sm:text-2xl leading-relaxed italic text-ink font-light select-all py-2">
+          "어떤 사람이 큰 잔치를 베풀고<br class="hidden sm:block">
+          많은 사람을 청하였더니<br>
+          잔치할 시각에 그 청하였던 자들에게<br class="hidden sm:block">
+          종을 보내어 이르되<br>
+          <span class="font-semibold text-deepBlue border-b border-accent/30 px-1">오소서, 모든 것이 준비되었나이다.</span>"
+        </p>
+        <div class="mt-6 font-sans text-xs sm:text-sm tracking-[0.25em] text-midBlue font-semibold uppercase">
+          LUKE 14 : 16 - 17
+        </div>
+      </div>
+
+      <div class="w-16 h-[1px] bg-accent/60 mx-auto my-10"></div>
+
+      <!-- Welcome Message -->
+      <p class="text-base sm:text-lg leading-loose text-slate-700 font-light max-w-lg mx-auto">
         모든 것이 준비된 자리.<br>
         당신을 위한 자리 하나가 비어 있습니다.<br><br>
-        하루의 짐을 내려놓고,<br>
-        <strong>함께 먹고, 함께 노래하고, 함께 쉴 수 있는 잔치</strong>로<br>
-        여러분을 초대합니다.
+        하루의 무거운 짐을 잠시 내려놓고,<br>
+        <span class="font-bold text-deepBlue border-b-2 border-accent/40 pb-0.5">함께 먹고, 노래하고, 온전히 쉴 수 있는 잔치</span>로<br>
+        여러분 한 사람 한 사람을 초대합니다.
       </p>
     </div>
   </section>
 
-  <!-- DETAILS -->
-  <section class="details">
-    <div class="details-grid">
 
-      <div class="detail-card reveal">
-        <div class="detail-card-icon">when</div>
-        <div class="detail-card-label">DATE & TIME</div>
-        <div class="detail-card-title">2026. 7. 4 (Sat)</div>
-        <div class="detail-card-sub">저녁 6:30<br>토요일 하루를 풍성하게</div>
+  <!-- DETAILS GRID SECTION -->
+  <section class="py-20 px-6 md:px-12 bg-bone">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: WHEN -->
+        <div class="bg-cream p-8 rounded-2xl border-t-4 border-midBlue shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 reveal flex flex-col justify-between">
+          <div>
+            <div class="font-caveat text-2xl text-accent mb-2">when</div>
+            <div class="text-[10px] tracking-[0.25em] text-midBlue font-semibold uppercase mb-4">DATE & TIME</div>
+            <h4 class="font-garamond text-2xl text-ink font-medium mb-2">2026. 7. 4 (토)</h4>
+          </div>
+          <p class="text-sm text-slate-600 mt-4 leading-relaxed">
+            저녁 <span class="font-semibold text-deepBlue">6:30</span><br>
+            토요일 저녁을 가장 아름답게 채울 시간
+          </p>
+        </div>
+
+        <!-- CARD 2: WHERE -->
+        <div class="bg-cream p-8 rounded-2xl border-t-4 border-midBlue shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 reveal flex flex-col justify-between">
+          <div>
+            <div class="font-caveat text-2xl text-accent mb-2">where</div>
+            <div class="text-[10px] tracking-[0.25em] text-midBlue font-semibold uppercase mb-4">VENUE</div>
+            <h4 class="font-sans text-2xl text-ink font-semibold mb-1">늘푸른교회</h4>
+            <div class="text-[11px] text-midBlue font-medium">배웅희 담임목사 시무</div>
+          </div>
+          <p class="text-sm text-slate-600 mt-4 leading-relaxed">
+            서울시 서초구 잠원동 61-3<br>
+            <span class="text-xs text-accent font-medium">(잠원로4길 33-6)</span>
+          </p>
+        </div>
+
+        <!-- CARD 3: WHO -->
+        <div class="bg-cream p-8 rounded-2xl border-t-4 border-midBlue shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 reveal flex flex-col justify-between">
+          <div>
+            <div class="font-caveat text-2xl text-accent mb-2">who</div>
+            <div class="text-[10px] tracking-[0.25em] text-midBlue font-semibold uppercase mb-4">FOR</div>
+            <h4 class="font-sans text-2xl text-ink font-semibold mb-2">모든 청소년 · 청년</h4>
+          </div>
+          <p class="text-sm text-slate-600 mt-4 leading-relaxed">
+            동서울노회 학생지도부 · 면려부 연합 주관으로<br>
+            함께하는 복된 연합의 축제
+          </p>
+        </div>
+
       </div>
-
-      <div class="detail-card reveal">
-        <div class="detail-card-icon">where</div>
-        <div class="detail-card-label">VENUE</div>
-        <div class="detail-card-title">늘푸른교회</div>
-        <div class="detail-card-sub">서울시 서초구 잠원동<br>(배웅희 담임목사 시무)</div>
-      </div>
-
-      <div class="detail-card reveal">
-        <div class="detail-card-icon">who</div>
-        <div class="detail-card-label">FOR</div>
-        <div class="detail-card-title">청소년 · 청년</div>
-        <div class="detail-card-sub">동서울노회<br>학생지도부 · 면려부 연합</div>
-      </div>
-
     </div>
   </section>
 
-  <!-- SPEAKER -->
-  <section class="speaker">
-    <div class="speaker-inner reveal">
-      <div class="section-label">speaker</div>
-      <div class="speaker-photo-frame">YST</div>
-      <h3 class="speaker-name">유성택 목사</h3>
-      <div class="speaker-role">정윤교회 담임목사</div>
 
-      <a href="https://www.youtube.com/watch?v=HLhrlVEBKXg" target="_blank" rel="noopener" class="worship-link speaker-video-link">
-        <span class="worship-link-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </span>
-        <span class="worship-link-text">
-          <span class="worship-link-label">YouTube</span>
-          <span class="worship-link-title">유성택 목사 설교 영상</span>
-        </span>
-        <span class="worship-link-arrow">↗</span>
-      </a>
+  <!-- MAP & TRANSPORT NAVIGATION SECTION -->
+  <section class="py-16 px-6 md:px-12 bg-cream border-t border-accent/15">
+    <div class="max-w-3xl mx-auto reveal">
+      <div class="text-center mb-10">
+        <div class="font-caveat text-2xl text-midBlue -rotate-[3deg] inline-block">directions</div>
+        <h3 class="text-2xl font-serif mt-1 font-semibold text-deepBlue">오시는 길 안내</h3>
+      </div>
 
-      <div class="worship-team">
-        <div class="worship-label">worship</div>
-        <div class="worship-name">잔치공동체</div>
-        <p class="worship-desc">함께 부르고, 함께 노래하는 사람들</p>
+      <!-- Address Box -->
+      <div class="bg-bone/50 border border-accent/25 rounded-2xl p-6 mb-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="text-center sm:text-left">
+          <div class="text-xs tracking-wider text-midBlue font-semibold mb-1">도로명 주소</div>
+          <p class="font-sans text-base font-medium text-ink select-all">서울특별시 서초구 잠원로4길 33-6 (늘푸른교회)</p>
+        </div>
+        <button onclick="copyAddress()" class="whitespace-nowrap px-4 py-2 bg-midBlue hover:bg-deepBlue text-cream rounded-full text-xs font-semibold tracking-wider transition-colors shadow-sm flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+          주소 복사
+        </button>
+      </div>
 
-        <a href="https://www.youtube.com/watch?v=K5eZBdfxUPw" target="_blank" rel="noopener" class="worship-link">
-          <span class="worship-link-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </span>
-          <span class="worship-link-text">
-            <span class="worship-link-label">YouTube</span>
-            <span class="worship-link-title">잔치공동체 영상 보기</span>
-          </span>
-          <span class="worship-link-arrow">↗</span>
+      <!-- Map Service Buttons Grid -->
+      <div class="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
+        <a href="https://map.kakao.com/link/search/늘푸른교회%20잠원동" target="_blank" class="flex flex-col items-center justify-center p-4 bg-[#FEE500]/10 border border-[#FEE500]/30 hover:bg-[#FEE500]/20 rounded-2xl transition-all group">
+          <div class="w-10 h-10 rounded-full bg-[#FEE500] flex items-center justify-center font-bold text-ink text-sm shadow-md group-hover:scale-105 transition-transform">카카오</div>
+          <span class="text-xs font-medium text-ink/80 mt-2">카카오맵</span>
+        </a>
+        <a href="https://map.naver.com/v5/search/서울%20서초구%20잠원로4길%2033-6" target="_blank" class="flex flex-col items-center justify-center p-4 bg-[#03C75A]/10 border border-[#03C75A]/30 hover:bg-[#03C75A]/20 rounded-2xl transition-all group">
+          <div class="w-10 h-10 rounded-full bg-[#03C75A] flex items-center justify-center font-bold text-white text-sm shadow-md group-hover:scale-105 transition-transform">네이버</div>
+          <span class="text-xs font-medium text-ink/80 mt-2">네이버 지도</span>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=늘푸른교회+잠원동" target="_blank" class="flex flex-col items-center justify-center p-4 bg-slate-100 border border-slate-300 hover:bg-slate-200 rounded-2xl transition-all group">
+          <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          </div>
+          <span class="text-xs font-medium text-ink/80 mt-2">구글 지도</span>
         </a>
       </div>
+
+      <!-- Detail Transportation Guides -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Subway Guide -->
+        <div class="bg-bone/40 p-5 rounded-2xl border border-accent/10 flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-orange-500 text-white flex-shrink-0 flex items-center justify-center font-bold text-sm shadow">3</div>
+          <div>
+            <h5 class="font-bold text-ink text-sm mb-1">지하철 (대중교통)</h5>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              <span class="font-semibold text-orange-600">3호선 잠원역 3번 출구</span>에서 <span class="font-semibold">도보로 약 3분</span> (약 200m) 거리에 위치하고 있어 매우 가깝습니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Parking Guide -->
+        <div class="bg-bone/40 p-5 rounded-2xl border border-accent/10 flex gap-4">
+          <div class="w-10 h-10 rounded-full bg-slate-700 text-white flex-shrink-0 flex items-center justify-center font-bold text-sm shadow">P</div>
+          <div>
+            <h5 class="font-bold text-ink text-sm mb-1">자가용 및 주차</h5>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              네비게이션에 <span class="font-semibold text-deepBlue">'늘푸른교회'</span> 검색 가능하며, 교회 건물 <span class="font-semibold">지하 2층 주차장</span> 공간을 무료로 원활하게 이용하실 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- POSTER -->
-  <section class="poster-section">
-    <div class="poster-inner reveal">
-      <div class="poster-script">save the date</div>
-      <div class="poster-label">official poster</div>
-      <a href="https://ifh.cc/v-JJ676r" target="_blank" rel="noopener" class="poster-frame">
-        <img src="https://i.ifh.cc/JJ676r.jpg" alt="Soul Feast @East Seoul 공식 포스터" loading="lazy">
-      </a>
-      <p class="poster-caption">
-        <strong>이미지를 눌러 크게 보기</strong><br>
-        친구에게 공유하고, 함께 와요.
+
+  <!-- SPEAKER & WORSHIP SECTION (With Inline Interactive Video Modals!) -->
+  <section class="py-24 px-6 md:px-12 bg-gradient-to-b from-bone to-foam">
+    <div class="max-w-3xl mx-auto text-center">
+      
+      <!-- Section Tag -->
+      <div class="font-caveat text-3xl text-midBlue -rotate-[3deg] inline-block mb-10">
+        speakers & artists
+      </div>
+
+      <!-- Speaker Profile Container -->
+      <div class="bg-cream border border-accent/20 rounded-2xl p-8 sm:p-12 shadow-md mb-12 reveal">
+        <!-- Art Speaker Photo Frame -->
+        <div class="relative w-44 h-44 mx-auto mb-6 rounded-full overflow-hidden bg-gradient-to-tr from-midBlue to-deepBlue p-1.5 shadow-xl">
+          <div class="w-full h-full rounded-full bg-ink flex items-center justify-center font-caveat text-5xl text-accent border border-accent/20">
+            YST
+          </div>
+          <div class="absolute inset-0 border-2 border-dashed border-accent/50 rounded-full animate-spin" style="animation-duration: 25s;"></div>
+        </div>
+
+        <h3 class="font-garamond text-3xl font-semibold text-ink mb-1">유성택 목사</h3>
+        <div class="text-xs tracking-[0.2em] text-midBlue uppercase font-semibold mb-6">정윤교회 담임목사</div>
+
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-md mx-auto mb-6">
+          청년 세대를 향한 뜨거운 사명과 영성으로 하나님의 말씀을 심도있고 재미있게 전하는 유성택 목사님의 생생한 메시지를 마주해 보세요.
+        </p>
+
+        <!-- SPEAKER VIDEO EMBED -->
+        <div class="max-w-md mx-auto rounded-2xl overflow-hidden border border-accent/25 shadow-lg relative group transition-transform duration-300 hover:scale-[1.01]">
+          <a href="https://ifh.cc/v-LKPr3s" target="_blank" rel="noopener" class="block w-full h-full relative">
+            <video src="https://i.ifh.cc/LKPr3s.mp4" class="w-full h-auto object-cover block" muted autoplay loop playsinline></video>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <span class="px-3.5 py-1.5 bg-black/60 text-cream rounded-full text-xs font-semibold tracking-wider flex items-center gap-1.5 backdrop-blur-sm">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                전체 화면 및 원본 보기
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Worship Team Section -->
+      <div class="border-t border-deepBlue/10 pt-16 reveal">
+        <div class="font-caveat text-3xl text-midBlue mb-2">worship</div>
+        <h4 class="font-garamond text-2xl font-bold text-ink">잔치공동체</h4>
+        <p class="text-sm text-slate-600 mt-2 max-w-md mx-auto mb-8">
+          예배의 감격과 부르심을 가슴에 품고 늘 뜨겁게 노래하는 잔치공동체와 함께 은혜를 나눕니다.
+        </p>
+
+        <!-- VIDEO LAUNCH BUTTON FOR WORSHIP TEAM -->
+        <button onclick="openVideoModal('K5eZBdfxUPw', '잔치공동체 워십')" class="inline-flex items-center gap-3 bg-cream border border-accent/30 hover:border-midBlue hover:bg-white text-ink px-6 py-3.5 rounded-full font-semibold text-sm shadow-md hover:shadow-xl transition-all duration-300 group">
+          <span class="w-8 h-8 rounded-full bg-[#FF0033] flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+            <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          잔치공동체 찬양 영상 시청하기
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- VIDEO MODAL CONTAINER -->
+  <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-md p-4">
+    <div class="relative w-full max-w-3xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10 scale-95 transition-transform duration-300" id="video-modal-content">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/40">
+        <h4 id="video-modal-title" class="text-sm font-semibold text-cream tracking-wide">YouTube 영상 재생</h4>
+        <button onclick="closeVideoModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-cream transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <!-- YouTube iframe wrapper -->
+      <div class="relative pt-[56.25%] bg-black">
+        <iframe id="video-iframe" class="absolute inset-0 w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- INTERACTIVE RSVP & GUESTBOOK SECTION -->
+  <section class="py-24 px-6 md:px-12 bg-cream border-t border-accent/15">
+    <div class="max-w-3xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <div class="font-caveat text-3xl text-midBlue -rotate-[3deg] inline-block mb-1">R.S.V.P & guestbook</div>
+        <h3 class="text-2xl font-serif font-bold text-deepBlue">함께 기쁨의 흔적을 남겨요</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-2">참석 여부나 기대와 축복이 담긴 한 마디를 적어주세요. 💌</p>
+      </div>
+
+      <!-- Guest Board Submission Form -->
+      <form id="rsvp-form" onsubmit="handleRSVPSubmit(event)" class="bg-bone/40 p-6 sm:p-8 rounded-3xl border border-accent/20 shadow-sm mb-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block text-xs font-semibold text-midBlue uppercase tracking-wider mb-1">성함 / 별명</label>
+            <input required type="text" id="rsvp-name" maxlength="15" placeholder="성함을 입력하세요 (예: 김청년)" class="w-full px-4 py-2.5 rounded-xl border border-accent/20 bg-white text-sm focus:outline-none focus:border-midBlue transition-colors text-ink">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-midBlue uppercase tracking-wider mb-1">소속</label>
+            <input required type="text" id="rsvp-church" maxlength="20" placeholder="소속 교회를 입력하세요 (예: 늘푸른교회)" class="w-full px-4 py-2.5 rounded-xl border border-accent/20 bg-white text-sm focus:outline-none focus:border-midBlue transition-colors text-ink">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-xs font-semibold text-midBlue uppercase tracking-wider mb-1">한 줄 응원 / 기대 한마디</label>
+          <textarea required id="rsvp-message" maxlength="120" placeholder="잔치에 오시는 소감이나 기대하는 마음을 남겨주세요." rows="3" class="w-full px-4 py-2.5 rounded-xl border border-accent/20 bg-white text-sm focus:outline-none focus:border-midBlue transition-colors text-ink resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3.5 bg-accent hover:bg-accent/90 text-ink font-bold rounded-xl text-sm tracking-widest shadow-md hover:shadow-xl transition-all duration-300 uppercase flex items-center justify-center gap-2">
+          <span>💌 축복 대장 등록하기</span>
+        </button>
+      </form>
+
+      <!-- Live Interactive Messages Board (Cards list) -->
+      <div id="guestbook-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Message cards inject here via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- POSTER SECTION (With Custom Modal Lightbox Previewer) -->
+  <section class="py-24 px-6 md:px-12 bg-gradient-to-b from-foam to-bone relative overflow-hidden">
+    <!-- Fluid background blob styles -->
+    <div class="absolute top-[10%] left-[-10%] w-[40%] h-[50%] bg-radial-gradient from-aqua/15 to-transparent blur-[60px] pointer-events-none"></div>
+    <div class="absolute bottom-[5%] right-[-10%] w-[35%] h-[50%] bg-radial-gradient from-deepBlue/10 to-transparent blur-[60px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-lg mx-auto text-center reveal">
+      <div class="font-caveat text-3xl text-midBlue -rotate-[3deg] inline-block mb-1">save the date</div>
+      <div class="text-[10px] tracking-[0.4em] text-midBlue uppercase mb-8">official poster</div>
+      
+      <!-- Clickable Poster Container -->
+      <div onclick="openPosterModal()" class="block relative rounded-2xl overflow-hidden shadow-2xl border border-accent/15 cursor-zoom-in transition-all duration-500 hover:scale-[1.02] hover:-rotate-1">
+        <img id="poster-img" src="https://i.ifh.cc/JJ676r.jpg" alt="Soul Feast @East Seoul 공식 포스터" class="w-full h-auto object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-black/30 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+          <span class="px-4 py-2 bg-black/60 text-cream rounded-full text-xs font-semibold tracking-wider flex items-center gap-1.5 backdrop-blur-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m4-3H6"/></svg>
+            크게 보기
+          </span>
+        </div>
+      </div>
+
+      <p class="mt-6 text-sm text-slate-500 leading-relaxed font-light">
+        <strong>이미지를 눌러 크게 보거나 저장</strong>하실 수 있습니다.<br>
+        소중한 친구들에게 초대장과 포스터를 전달하여 함께 오세요.
       </p>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="cta-inner">
-      <div class="cta-script">See you there.</div>
-      <h2>오소서,<br>모든 것이 준비되었나이다.</h2>
-      <div class="cta-buttons">
-        <button class="btn btn-primary" onclick="shareLink()">
-          📋 링크 복사하기
+  <!-- POSTER FULLSCREEN MODAL (LIGHTBOX) -->
+  <div id="poster-modal" onclick="closePosterModal()" class="fixed inset-0 z-50 flex items-center justify-center bg-black/95 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-md p-4 cursor-zoom-out">
+    <div class="relative max-w-full max-h-[90vh] overflow-hidden rounded-xl shadow-2xl scale-95 transition-transform duration-300" id="poster-modal-content">
+      <button onclick="closePosterModal()" class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/60 hover:bg-black/80 text-cream border border-white/20 transition-all">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <img src="https://i.ifh.cc/JJ676r.jpg" alt="Soul Feast @East Seoul 공식 포스터 대형" class="max-w-full max-h-[85vh] object-contain rounded-lg">
+    </div>
+  </div>
+
+
+  <!-- CALL TO ACTION (CTA) SECTION -->
+  <section class="py-28 px-6 md:px-12 bg-ink text-cream relative overflow-hidden text-center">
+    <!-- Glow spots -->
+    <div class="absolute top-[-50%] left-[-20%] w-[80%] h-[100%] bg-radial-gradient from-aqua/25 to-transparent blur-[80px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-2xl mx-auto">
+      <div class="font-caveat text-4xl sm:text-6xl text-accent -rotate-[3deg] mb-8">See you there.</div>
+      <h2 class="font-garamond text-2xl sm:text-4xl font-light leading-relaxed mb-12">
+        오소서,<br>
+        모든 것이 준비되었나이다.
+      </h2>
+
+      <!-- Premium Button Row -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <!-- COPY ACTION BUTTON -->
+        <button onclick="shareLink()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-accent text-ink font-bold px-8 py-4 rounded-full text-sm tracking-wider shadow-lg hover:shadow-2xl hover:bg-accent/90 hover:-translate-y-0.5 transition-all duration-300">
+          📋 초대장 링크 복사하기
         </button>
-        <a class="btn btn-secondary" href="https://www.youtube.com/watch?v=K5eZBdfxUPw" target="_blank">
-          ▶ 영상 보러가기
+        <!-- NAVIGATE TO RSVP SECTION BUTTON -->
+        <a href="#rsvp-form" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border border-white/40 hover:border-white text-white px-8 py-4 rounded-full text-sm tracking-wider hover:bg-white/10 transition-all duration-300">
+          ✏️ 방명록 작성하기
         </a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="host">주관 · 동서울노회 학생지도부 · 면려부</div>
-    <div>노회장 박의서 목사 &nbsp;·&nbsp; 학생지도부장 유성택 목사 &nbsp;·&nbsp; 면려부장 박성봉 목사</div>
-    <div class="brand">Soul Feast @East Seoul</div>
+  <footer class="py-16 px-6 md:px-12 bg-ink text-white/50 border-t border-white/10 text-center">
+    <div class="max-w-4xl mx-auto flex flex-col items-center">
+      <div class="text-sm font-garamond text-white/80 mb-2">주관 · 동서울노회 학생지도부 · 면려부</div>
+      <div class="text-xs font-sans font-light leading-relaxed max-w-md">
+        노회장 박의서 목사 &nbsp;·&nbsp; 학생지도부장 유성택 목사 &nbsp;·&nbsp; 면려부장 박성봉 목사
+      </div>
+      <div class="font-caveat text-2xl text-accent mt-8">
+        Soul Feast @East Seoul
+      </div>
+      <div class="text-[9px] uppercase tracking-widest text-white/30 mt-4">
+        © 2026 East Seoul Presbyterian Church Council. All rights reserved.
+      </div>
+    </div>
   </footer>
 
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+
+  <script>
+    // ===== CONFIG & STATE =====
+    const EVENT_DATE = new Date('2026-07-04T18:30:00').getTime();
+    
+    // MOCK DATA FOR GUESTBOARD (Now starting completely empty as requested)
+    const MOCK_GUESTS = [];
+
+    // ===== ON LOAD INITIALIZATION =====
+    window.onload = function() {
+      // Start Countdown Timer
+      startCountdown();
+
+      // Setup Star Particle system
+      initParticles();
+
+      // Initialize Guest Book cards from LocalStorage
+      initGuestbook();
+
+      // Initialize Scroll Reveal
+      initScrollReveal();
+    }
+
+    // ===== AMBIENT CELESTIAL CANVAS PARTICLES =====
+    function initParticles() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      
+      function resize() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+      }
+      
+      window.addEventListener('resize', resize);
+      resize();
+
+      class Particle {
+        constructor() {
+          this.reset();
+          this.y = Math.random() * canvas.height; // Spread initially
+        }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = canvas.height + 10;
+          this.size = Math.random() * 1.5 + 0.5;
+          this.speedY = Math.random() * 0.4 + 0.1;
+          this.alpha = Math.random() * 0.5 + 0.3;
+          this.fadeSpeed = Math.random() * 0.005 + 0.002;
+        }
+        update() {
+          this.y -= this.speedY;
+          if (this.y < 0) {
+            this.reset();
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(212, 165, 116, ${this.alpha})`; // Warm Accent gold colored embers
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 45; i++) {
+        particles.push(new Particle());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    // ===== DYNAMIC REVERSING COUNTDOWN TIMER =====
+    function startCountdown() {
+      const daysEl = document.getElementById('timer-days');
+      const hoursEl = document.getElementById('timer-hours');
+      const minsEl = document.getElementById('timer-minutes');
+      const secsEl = document.getElementById('timer-seconds');
+
+      function update() {
+        const now = new Date().getTime();
+        const diff = EVENT_DATE - now;
+
+        if (diff <= 0) {
+          daysEl.innerText = "00";
+          hoursEl.innerText = "00";
+          minsEl.innerText = "00";
+          secsEl.innerText = "00";
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        daysEl.innerText = String(days).padStart(2, '0');
+        hoursEl.innerText = String(hours).padStart(2, '0');
+        minsEl.innerText = String(minutes).padStart(2, '0');
+        secsEl.innerText = String(seconds).padStart(2, '0');
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+
+    // ===== SCROLL REVEAL (INTERSECTION OBSERVER) =====
+    function initScrollReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    // ===== TOAST UTILITY =====
+    function triggerToast(message, isSuccess = true) {
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toast-icon');
+      const msg = document.getElementById('toast-message');
+
+      icon.innerText = isSuccess ? "✨" : "💌";
+      msg.innerText = message;
+
+      toast.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 3500);
+    }
+
+    // ===== COPY TOOLS =====
+    function copyAddress() {
+      const textToCopy = "서울특별시 서초구 잠원로4길 33-6 늘푸른교회";
+      
+      // Modern method with fallback mechanism
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          triggerToast("교회 주소가 복사되었습니다. 지도앱에 붙여넣어 보세요!");
+        }).catch(() => fallbackCopyText(textToCopy));
+      } else {
+        fallbackCopyText(textToCopy);
+      }
+    }
+
+    function fallbackCopyText(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";  // Avoid scrolling to bottom
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        triggerToast("주소가 복사되었습니다. 지도앱에 붙여넣어 보세요!");
+      } catch (err) {
+        triggerToast("복사에 실패했습니다. 직접 복사해 주세요.", false);
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function shareLink() {
+      const currentUrl = window.location.href;
+      const shareMessage = `Soul Feast @East Seoul · 2026.7.4 (토) 저녁 6:30 · 늘푸른교회\n\n모든 것이 준비된 가득 채워진 축제, 당신을 위한 자리가 비어 있습니다. 함께 자리를 빛내주세요. 💌\n${currentUrl}`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: 'Soul Feast @East Seoul',
+          text: '당신을 아름다운 가을밤의 전야 잔치로 정식 초대합니다.',
+          url: currentUrl
+        }).catch(() => {
+          executeDirectCopy(currentUrl, shareMessage);
+        });
+      } else {
+        executeDirectCopy(currentUrl, shareMessage);
+      }
+    }
+
+    function executeDirectCopy(url, fullText) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(fullText).then(() => {
+          triggerToast("초대장 공유 텍스트와 링크가 복사되었습니다! 💌");
+        }).catch(() => {
+          fallbackCopyText(fullText);
+        });
+      } else {
+        fallbackCopyText(fullText);
+      }
+    }
+
+    // ===== IN-PAGE VIDEO LIGHTBOX MODAL HANDLERS =====
+    function openVideoModal(videoId, title) {
+      const modal = document.getElementById('video-modal');
+      const modalContent = document.getElementById('video-modal-content');
+      const iframe = document.getElementById('video-iframe');
+      const titleEl = document.getElementById('video-modal-title');
+
+      titleEl.innerText = `${title} 영상 재생 중`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-95');
+      modalContent.classList.add('scale-100');
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      const modalContent = document.getElementById('video-modal-content');
+      const iframe = document.getElementById('video-iframe');
+
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+      
+      // Stop dynamic video streaming completely on modal termination
+      iframe.src = "";
+    }
+
+    // Escape button closer logic
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeVideoModal();
+        closePosterModal();
       }
     });
-  }, { threshold: 0.15 });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // ===== POSTER PREVIEW LIGHTBOX =====
+    function openPosterModal() {
+      const modal = document.getElementById('poster-modal');
+      const modalContent = document.getElementById('poster-modal-content');
 
-  // Share link
-  function shareLink() {
-    const url = window.location.href;
-    const text = "Soul Feast @East Seoul · 2026.7.4 (토) 저녁 6:30 · 늘푸른교회\n당신을 잔치에 초대합니다.";
-
-    if (navigator.share) {
-      navigator.share({ title: 'Soul Feast @East Seoul', text: text, url: url })
-        .catch(() => copyToClipboard(url, text));
-    } else {
-      copyToClipboard(url, text);
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-95');
+      modalContent.classList.add('scale-100');
     }
-  }
 
-  function copyToClipboard(url, text) {
-    const full = text + "\n" + url;
-    navigator.clipboard.writeText(full).then(() => {
-      alert("초대장 링크가 복사되었어요!\n친구에게 공유해보세요 💌");
-    }).catch(() => {
-      prompt("아래 링크를 복사해서 공유하세요:", url);
-    });
-  }
-</script>
+    function closePosterModal() {
+      const modal = document.getElementById('poster-modal');
+      const modalContent = document.getElementById('poster-modal-content');
+
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+    }
+
+    // ===== INTERACTIVE GUESTBOOK ENGINE =====
+    function initGuestbook() {
+      // Changed key to v2 to force clearance of old mock items for existing visitors
+      const stored = localStorage.getItem('soul_feast_guests_v2');
+      if (!stored) {
+        localStorage.setItem('soul_feast_guests_v2', JSON.stringify(MOCK_GUESTS));
+      }
+      renderGuestbook();
+    }
+
+    function renderGuestbook() {
+      const listEl = document.getElementById('guestbook-list');
+      if (!listEl) return;
+
+      const guests = JSON.parse(localStorage.getItem('soul_feast_guests_v2')) || [];
+      
+      // Beautiful empty state placeholder
+      if (guests.length === 0) {
+        listEl.innerHTML = `
+          <div class="col-span-1 sm:col-span-2 text-center py-12 px-6 bg-bone/30 rounded-2xl border border-dashed border-accent/40 text-slate-500 text-sm">
+            ✨ 아직 등록된 축복 메시지가 없습니다.<br class="sm:hidden"> 첫 번째 주인공이 되어 축복과 기대의 한 마디를 남겨보세요! 💌
+          </div>
+        `;
+        return;
+      }
+      
+      listEl.innerHTML = "";
+      guests.forEach((g) => {
+        const card = document.createElement('div');
+        card.className = "bg-bone/40 p-5 rounded-2xl border border-accent/15 guest-card flex flex-col justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-8 h-8 rounded-full bg-midBlue/10 flex items-center justify-center font-bold text-midBlue text-xs">
+                ${g.name.charAt(0)}
+              </div>
+              <div>
+                <h5 class="text-xs font-bold text-ink">${g.name}</h5>
+                <span class="text-[9px] text-accent font-semibold tracking-wider uppercase">${g.affiliation}</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed italic">"${g.message}"</p>
+          </div>
+        `;
+        listEl.appendChild(card);
+      });
+    }
+
+    function handleRSVPSubmit(event) {
+      event.preventDefault();
+      
+      const nameInput = document.getElementById('rsvp-name');
+      const churchInput = document.getElementById('rsvp-church');
+      const msgInput = document.getElementById('rsvp-message');
+
+      const newEntry = {
+        name: nameInput.value.trim(),
+        affiliation: churchInput.value.trim(),
+        message: msgInput.value.trim()
+      };
+
+      const currentList = JSON.parse(localStorage.getItem('soul_feast_guests_v2')) || [];
+      currentList.unshift(newEntry); // Insert new posts at top
+      localStorage.setItem('soul_feast_guests_v2', JSON.stringify(currentList));
+
+      // Reset Form fields
+      nameInput.value = "";
+      churchInput.value = "";
+      msgInput.value = "";
+
+      // Re-render and show feedback
+      renderGuestbook();
+      triggerToast("축복 카드가 성공적으로 방명록에 등록되었습니다! 💌");
+    }
+  </script>
 
 </body>
 </html>
